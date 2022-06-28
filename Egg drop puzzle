@@ -1,1 +1,30 @@
-
+int [][] dp=new int[201][201];
+    boolean flag=true;
+     int eggDrop(int n, int k) 
+	{
+	    // Your code here
+	    if(flag)
+	    {
+	        for(int[] a:dp)
+	          Arrays.fill(a,-1);
+	          
+	       flag=false;   
+	    }
+	    
+	    if(k==0 || k==1)
+	      return k;
+	      
+	    if(n==1)
+	      return k;
+	      
+	    if(dp[n][k]!=-1)
+	       return dp[n][k];
+	       
+	     int ans = Integer.MAX_VALUE;
+           
+          for(int z = 1;z<=k;z++){
+               int temp = 1 + Math.max(eggDrop(n-1,z-1),eggDrop(n,k-z));
+               ans = Math.min(ans,temp);
+           }
+         return dp[n][k] = ans;    
+	}
