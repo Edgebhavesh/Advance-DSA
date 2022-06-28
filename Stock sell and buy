@@ -1,0 +1,25 @@
+ ArrayList<ArrayList<Integer> > stockBuySell(int A[], int n) {
+        // code here
+        ArrayList<ArrayList<Integer>> res=new ArrayList<ArrayList<Integer>>();
+        int bought=A[0];
+        int buyday=0;
+        
+        for(int i=1;i<n;i++)
+        {
+            if(A[i]>bought)
+            {
+                res.add(new ArrayList<Integer>(Arrays.asList(buyday,i)));
+                bought=A[i];
+                buyday=i;
+            }
+            else if(A[i]<bought)
+            {
+                bought=A[i];
+                buyday=i;
+            }
+        }
+        return res;
+        
+        
+        
+        https://practice.geeksforgeeks.org/problems/stock-buy-and-sell-1587115621/1/?page=1&category[]=Dynamic%20Programming&sortBy=submissions#
