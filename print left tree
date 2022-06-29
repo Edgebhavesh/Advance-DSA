@@ -1,0 +1,24 @@
+void view(ArrayList<Integer>res ,int level,Node root)
+    {
+         if(root==null)
+            return;
+            
+        if(res.size()==level)
+            res.add(root.data);
+            
+        view(res,level+1,root.left);
+        view(res,level+1,root.right);
+    }
+    
+    ArrayList<Integer> leftView(Node root)
+    {
+      // Your code here
+      ArrayList<Integer> res=new ArrayList<>();
+      view(res,0,root);
+      return res;
+    }
+    
+    
+    
+    
+    https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1/?page=1&sortBy=submissions&searchQuery=Binary%20Tree#
